@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-16T13:31:19.944Z",
+    "end": "2025-04-16T13:31:31.842Z",
+    "duration": 11898,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "98cbb4d1-0c60-41d4-b5eb-81a313574e51",
+      "title": "",
+      "fullFile": "D:\\ARIYA\\QA\\tugas_9\\test\\saucedemo.test.js",
+      "file": "\\test\\saucedemo.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5e881868-f9a1-4290-8f7e-45be8107c12c",
+          "title": "SauceDemo Automation Test",
+          "fullFile": "D:\\ARIYA\\QA\\tugas_9\\test\\saucedemo.test.js",
+          "file": "\\test\\saucedemo.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"SauceDemo Automation Test\"",
+              "fullTitle": "SauceDemo Automation Test \"before all\" hook in \"SauceDemo Automation Test\"",
+              "timedOut": false,
+              "duration": 7065,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('firefox').build();",
+              "err": {},
+              "uuid": "db508728-bfc3-4595-88e9-20653fba91e3",
+              "parentUUID": "5e881868-f9a1-4290-8f7e-45be8107c12c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"SauceDemo Automation Test\"",
+              "fullTitle": "SauceDemo Automation Test \"after all\" hook in \"SauceDemo Automation Test\"",
+              "timedOut": false,
+              "duration": 2080,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "1e60409d-1f37-4c3a-82e1-ec0aa67b915c",
+              "parentUUID": "5e881868-f9a1-4290-8f7e-45be8107c12c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login sukses ke saucedemo.com",
+              "fullTitle": "SauceDemo Automation Test Login sukses ke saucedemo.com",
+              "timedOut": false,
+              "duration": 2643,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\nawait driver.findElement(By.id('user-name')).sendKeys('standard_user');\nawait driver.findElement(By.id('password')).sendKeys('secret_sauce');\nawait driver.findElement(By.id('login-button')).click();\nconst url = await driver.getCurrentUrl();\nassert.strictEqual(url, 'https://www.saucedemo.com/inventory.html');",
+              "err": {},
+              "uuid": "7bb38846-8250-4075-be11-eab6dd7ab788",
+              "parentUUID": "5e881868-f9a1-4290-8f7e-45be8107c12c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Urutkan produk dari Z ke A",
+              "fullTitle": "SauceDemo Automation Test Urutkan produk dari Z ke A",
+              "timedOut": false,
+              "duration": 93,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const dropdown = await driver.findElement(By.className('product_sort_container'));\nawait dropdown.sendKeys('Name (Z to A)');\nconst firstItem = await driver.wait(\n  until.elementLocated(By.className('inventory_item_name')),\n  5000\n);\nconst itemName = await firstItem.getText();\n\nconsole.log('Produk paling atas setelah Z-A sort:', itemName);",
+              "err": {},
+              "uuid": "cc49ba96-4042-410f-9298-a172e031189c",
+              "parentUUID": "5e881868-f9a1-4290-8f7e-45be8107c12c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7bb38846-8250-4075-be11-eab6dd7ab788",
+            "cc49ba96-4042-410f-9298-a172e031189c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2736,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
